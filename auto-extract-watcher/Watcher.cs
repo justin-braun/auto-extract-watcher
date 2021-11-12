@@ -11,24 +11,39 @@ namespace auto_extract_watcher
     internal class Watcher
     {
         private string? Location = "";
+        FileSystemWatcher? watcher;
 
-        public void WatchLocation(string location)
+        public Watcher(string directory)
         {
-            Location = location;
+            Location = directory;
 
-            FileSystemWatcher watcher = new FileSystemWatcher();
-            watcher.Path = location;
-            
+            watcher = new FileSystemWatcher();
+            watcher.Path = directory;
+
             watcher.IncludeSubdirectories = true;
             watcher.Filter = "*.zip";
-            watcher.Created += Watcher_Created;
-
-            // Start monitoring
-            watcher.EnableRaisingEvents = true;
+            watcher.Created += Watcher_FileCreated;
 
         }
 
-        private void Watcher_Created(object sender, FileSystemEventArgs e)
+        public void StartWatching()
+        {
+            if (watcher != null)
+            {
+                // Start watching
+                watcher.EnableRaisingEvents = true;
+            }
+        }
+
+        public void StopWatching()
+        {
+            if (watcher != null)
+            {
+                // Stop watching
+                watcher.EnableRaisingEvents = false;
+            }
+        }
+        private void Watcher_FileCreated(object sender, FileSystemEventArgs e)
         {
             try
             {
