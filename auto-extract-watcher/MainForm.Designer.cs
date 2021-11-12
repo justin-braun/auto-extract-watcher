@@ -30,9 +30,12 @@
         {
             this.textWatchLocation = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonBrowse = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.BrowseDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textExtractLocation = new System.Windows.Forms.TextBox();
+            this.buttonBrowseExtractLocation = new System.Windows.Forms.Button();
+            this.buttonBrowseWatchLocation = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textWatchLocation
@@ -51,19 +54,9 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Watch Location:";
             // 
-            // buttonBrowse
-            // 
-            this.buttonBrowse.Location = new System.Drawing.Point(175, 70);
-            this.buttonBrowse.Name = "buttonBrowse";
-            this.buttonBrowse.Size = new System.Drawing.Size(75, 23);
-            this.buttonBrowse.TabIndex = 2;
-            this.buttonBrowse.Text = "&Browse";
-            this.buttonBrowse.UseVisualStyleBackColor = true;
-            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
-            // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(256, 70);
+            this.buttonOk.Location = new System.Drawing.Point(289, 138);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 3;
@@ -71,14 +64,53 @@
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 15);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Extract Location:";
+            // 
+            // textExtractLocation
+            // 
+            this.textExtractLocation.Location = new System.Drawing.Point(12, 84);
+            this.textExtractLocation.Name = "textExtractLocation";
+            this.textExtractLocation.Size = new System.Drawing.Size(319, 23);
+            this.textExtractLocation.TabIndex = 4;
+            // 
+            // buttonBrowseExtractLocation
+            // 
+            this.buttonBrowseExtractLocation.Location = new System.Drawing.Point(337, 84);
+            this.buttonBrowseExtractLocation.Name = "buttonBrowseExtractLocation";
+            this.buttonBrowseExtractLocation.Size = new System.Drawing.Size(27, 23);
+            this.buttonBrowseExtractLocation.TabIndex = 6;
+            this.buttonBrowseExtractLocation.Text = "...";
+            this.buttonBrowseExtractLocation.UseVisualStyleBackColor = true;
+            this.buttonBrowseExtractLocation.Click += new System.EventHandler(this.buttonBrowseExtractLocation_Click);
+            // 
+            // buttonBrowseWatchLocation
+            // 
+            this.buttonBrowseWatchLocation.Location = new System.Drawing.Point(337, 27);
+            this.buttonBrowseWatchLocation.Name = "buttonBrowseWatchLocation";
+            this.buttonBrowseWatchLocation.Size = new System.Drawing.Size(27, 23);
+            this.buttonBrowseWatchLocation.TabIndex = 7;
+            this.buttonBrowseWatchLocation.Text = "...";
+            this.buttonBrowseWatchLocation.UseVisualStyleBackColor = true;
+            this.buttonBrowseWatchLocation.Click += new System.EventHandler(this.buttonBrowseWatchLocation_Click);
+            // 
             // MainForm
             // 
             this.AcceptButton = this.buttonOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 105);
+            this.ClientSize = new System.Drawing.Size(377, 173);
+            this.Controls.Add(this.buttonBrowseWatchLocation);
+            this.Controls.Add(this.buttonBrowseExtractLocation);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textExtractLocation);
             this.Controls.Add(this.buttonOk);
-            this.Controls.Add(this.buttonBrowse);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textWatchLocation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -96,8 +128,11 @@
 
         private TextBox textWatchLocation;
         private Label label1;
-        private Button buttonBrowse;
         private Button buttonOk;
         private FolderBrowserDialog BrowseDialog;
+        private Label label2;
+        private TextBox textExtractLocation;
+        private Button buttonBrowseExtractLocation;
+        private Button buttonBrowseWatchLocation;
     }
 }

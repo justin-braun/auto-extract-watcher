@@ -10,16 +10,6 @@ namespace auto_extract_watcher
             InitializeComponent();
         }
 
-        private void buttonBrowse_Click(object sender, EventArgs e)
-        {
-            var folder = BrowseDialog.ShowDialog();
-
-            if (folder == DialogResult.OK)
-            {
-                textWatchLocation.Text = BrowseDialog.SelectedPath;
-            }
-        }
-
         private void buttonOk_Click(object sender, EventArgs e)
         {
             if (textWatchLocation.Text == "")
@@ -35,7 +25,7 @@ namespace auto_extract_watcher
                 if (Directory.Exists(textWatchLocation.Text))
                 {
                     // Instantiate watcher class and start watching
-                    watcher = new Watcher(textWatchLocation.Text);
+                    watcher = new Watcher(textWatchLocation.Text, textExtractLocation.Text);
                     watcher.StartWatching();
                 }
                 else
@@ -47,8 +37,8 @@ namespace auto_extract_watcher
 
                 // Change button text & disable location/browse
                 buttonOk.Text = "&Stop";
-                buttonBrowse.Enabled = false;
                 textWatchLocation.Enabled = false;
+                textExtractLocation.Enabled = false;
 
                 // Update the property
                 WatcherStarted = true;
@@ -64,8 +54,8 @@ namespace auto_extract_watcher
 
                     // Change button text & enable location/browse
                     buttonOk.Text = "&Start";
-                    buttonBrowse.Enabled = true;
                     textWatchLocation.Enabled = true;
+                    textExtractLocation.Enabled = true;
 
                     // Update the property
                     WatcherStarted = false;
@@ -75,6 +65,26 @@ namespace auto_extract_watcher
             
 
 
+        }
+
+        private void buttonBrowseWatchLocation_Click(object sender, EventArgs e)
+        {
+            var folder = BrowseDialog.ShowDialog();
+
+            if (folder == DialogResult.OK)
+            {
+                textWatchLocation.Text = BrowseDialog.SelectedPath;
+            }
+        }
+
+        private void buttonBrowseExtractLocation_Click(object sender, EventArgs e)
+        {
+            var folder = BrowseDialog.ShowDialog();
+
+            if (folder == DialogResult.OK)
+            {
+                textExtractLocation.Text = BrowseDialog.SelectedPath;
+            }
         }
     }
 }
